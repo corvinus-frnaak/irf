@@ -57,6 +57,7 @@ namespace UserMaintenance
 				FullName = textBox1.Text,
 			};
 			users.Add(u);
+			textBox1.Text = "";
 		}
 	}
 }
