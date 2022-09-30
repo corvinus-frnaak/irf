@@ -32,7 +32,11 @@ namespace UserMaintenance
 
 				if (sfd.ShowDialog() == DialogResult.OK)
 				{
-					File.WriteAllText(sfd.FileName, textBox_ListDestination.Text);
+					for (int i = 0; i < users.Count; i++)
+					{
+						File.WriteAllText(sfd.FileName, users.ToString());
+					}
+					
 				}
 			}
 
