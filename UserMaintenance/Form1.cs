@@ -31,13 +31,17 @@ namespace UserMaintenance
 			using (var sfd = new SaveFileDialog())
 			{
 				sfd.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-				sfd.FilterIndex = 2;
+				sfd.FilterIndex = 1;
 
 				if (sfd.ShowDialog() == DialogResult.OK)
 				{
 					TextWriter tw = new StreamWriter(sfd.FileName);
-
-					tw.WriteLine(users);
+					for (int i = 0; i < users.Count; i++)
+					{
+						tw.WriteLine(users[i].ID);
+						tw.WriteLine(users[i].FullName);
+					}
+					
 					tw.Close();
 					
 
