@@ -31,11 +31,12 @@ namespace UserMaintenance
 
 				if (sfd.ShowDialog() == DialogResult.OK)
 				{
-					for (int i = 0; i < users.Count; i++)
-					{
-						File.WriteAllText(sfd.FileName, users.ToString());
-					}
+					TextWriter tw = new StreamWriter(sfd.FileName);
+
+					tw.WriteLine(users);
+					tw.Close();
 					
+
 				}
 			}
 
