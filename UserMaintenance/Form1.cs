@@ -19,7 +19,11 @@ namespace UserMaintenance
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-
+			var u = new Entities.User()
+			{
+				FullName = textBox1.Text,
+			};
+			users.Add(u);
 		}
 	}
 }
