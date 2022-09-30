@@ -19,5 +19,15 @@ namespace UserMaintenance
 
 			button1.Text = Resource1.Add;
 		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			SaveFileDialog s = new SaveFileDialog();
+			if (s.ShowDialog()==DialogResult.OK)
+			{
+				
+			}
+			
+		}
 	}
 }
