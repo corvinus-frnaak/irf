@@ -23,6 +23,7 @@ namespace negyeshet
 		{
 			InitializeComponent();
 			LoadData();
+			CreateExcel();
 		}
 		private void LoadData()
 		{
@@ -92,13 +93,18 @@ namespace negyeshet
 			headerRange.Interior.Color = Color.LightBlue;
 			headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
 
-			Excel.Range tableRange = xlSheet.get_Range(GetCell(2, 1), GetCell(Flats.Count, headers.Length));
+			int lastRowID = xlSheet.UsedRange.Rows.Count;
+
+			Excel.Range tableRange = xlSheet.get_Range(GetCell(2, 1), GetCell(Flats.Count+1, headers.Length));
+			Excel.Range elsooszlopRange = xlSheet.get_Range(GetCell(2, 1), GetCell(lastRowID, 1));
+			Excel.Range utolsooszlopRange = xlSheet.get_Range(GetCell(2, headers.Length), GetCell(lastRowID, headers.Length));
 			tableRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
-			tableRange.Rows[0].Font.Bold = true;
-			tableRange.Rows[0].Interior.Color = Color.LightYellow;
-			//int lastRowID = xlSheet.UsedRange.Rows.Count;
-			tableRange.Rows[Flats.Count+1].Interior.Color = Color.LightGreen;
-			
+			elsooszlopRange.Font.Bold = true;
+			elsooszlopRange.Interior.Color = Color.LightYellow;
+			utolsooszlopRange.Interior.Color = Color.LightGreen;
+			utolsooszlopRange.Cells.NumberFormat = "#.##";
+
+
 		}
 		private void CreateExcel()
 		{
