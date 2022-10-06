@@ -28,6 +28,23 @@ namespace negyeshet
 		{
 			Flats = context.Flats.ToList();
 		}
+		private string GetCell(int x, int y)
+		{
+			string ExcelCoordinate = "";
+			int dividend = y;
+			int modulo;
+
+			while (dividend > 0)
+			{
+				modulo = (dividend - 1) % 26;
+				ExcelCoordinate = Convert.ToChar(65 + modulo).ToString() + ExcelCoordinate;
+				dividend = (int)((dividend - modulo) / 26);
+			}
+			ExcelCoordinate += x.ToString();
+
+			return ExcelCoordinate;
+		}
+
 		private void CreateTable()
 		{
 			string[] headers = new string[] {
@@ -57,8 +74,25 @@ namespace negyeshet
 				values[counter, 6] = f.FloorArea;
 				values[counter, 7] = f.Price;
 				values[counter, 8] = "";
+				xlSheet.get_Range(
+						 GetCell(2, 1),
+						 GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
 				counter++;
 			}
+			FormatTable(headers);
+		}
+		private void FormatTable(string[] headers)
+		{
+			Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
+			headerRange.Font.Bold = true;
+			headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+			headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+			headerRange.EntireColumn.AutoFit();
+			headerRange.RowHeight = 40;
+			headerRange.Interior.Color = Color.LightBlue;
+			headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+			Excel.Range tableRange = xlSheet.get_Range(GetCell(2, 1), GetCell(Flats.Count, headers.Length));
 		}
 		private void CreateExcel()
 		{
