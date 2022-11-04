@@ -10,11 +10,12 @@ namespace _6.het.Entities
 {
   public class PresentFactory : IToyFactory
   {
-    public Color PresentColor { get; set; }
+    public Color RibbonColor { get; set; }
+    public Color BoxColor { get; set; }
 
     public Toy CreateNew()
     {
-      return new Present();
+      return new Present(RibbonColor,BoxColor);
     }
 
 		Toy IToyFactory.CreateNew()

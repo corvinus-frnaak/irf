@@ -10,18 +10,18 @@ namespace _6.het.Entities
 {
 	internal class Present :Toy
 	{
-    public SolidBrush PresentColor { get; private set; }
+    public SolidBrush BoxColor { get; private set; }
     public SolidBrush RibbonColor { get; private set; }
 
     public Present(Color ribbon, Color box)
     {
-      PresentColor = new SolidBrush(box);
+      BoxColor = new SolidBrush(box);
       RibbonColor = new SolidBrush(ribbon);
     }
 
     protected override void DrawImage(Graphics g)
     {
-      g.FillRectangle(PresentColor, 0, 0, Width, Height);
+      g.FillRectangle(BoxColor, 0, 0, Width, Height);
       g.FillRectangle(RibbonColor, 0, 0, Width, Height/5);
        g.FillRectangle(RibbonColor, 0, 0, Width / 5, Height);
     }

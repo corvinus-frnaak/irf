@@ -94,5 +94,14 @@ namespace _6.het
         return;
       button.BackColor = colorPicker.Color;
     }
+
+		private void btPresent_Click(object sender, EventArgs e)
+		{
+      Factory = new PresentFactory
+      {
+        RibbonColor = btRibbonColor.BackColor
+        BoxColor = btBoxColor.BackColor
+      };
+    }
 	}
 }

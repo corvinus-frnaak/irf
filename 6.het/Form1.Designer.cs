@@ -37,6 +37,8 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
 			this.btPresent = new System.Windows.Forms.Button();
+			this.btBoxColor = new System.Windows.Forms.Button();
+			this.btRibbonColor = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// mainPanel
@@ -106,12 +108,33 @@
 			this.btPresent.TabIndex = 5;
 			this.btPresent.Text = "PRESENT";
 			this.btPresent.UseVisualStyleBackColor = true;
+			this.btPresent.Click += new System.EventHandler(this.btPresent_Click);
+			// 
+			// btBoxColor
+			// 
+			this.btBoxColor.Location = new System.Drawing.Point(194, 44);
+			this.btBoxColor.Name = "btBoxColor";
+			this.btBoxColor.Size = new System.Drawing.Size(117, 23);
+			this.btBoxColor.TabIndex = 6;
+			this.btBoxColor.Text = "BOX COLOR";
+			this.btBoxColor.UseVisualStyleBackColor = true;
+			// 
+			// btRibbonColor
+			// 
+			this.btRibbonColor.Location = new System.Drawing.Point(194, 73);
+			this.btRibbonColor.Name = "btRibbonColor";
+			this.btRibbonColor.Size = new System.Drawing.Size(117, 23);
+			this.btRibbonColor.TabIndex = 7;
+			this.btRibbonColor.Text = "RIBBON COLOR";
+			this.btRibbonColor.UseVisualStyleBackColor = true;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(803, 447);
+			this.Controls.Add(this.btRibbonColor);
+			this.Controls.Add(this.btBoxColor);
 			this.Controls.Add(this.btPresent);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.label1);
@@ -135,6 +158,8 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button btPresent;
+		private System.Windows.Forms.Button btBoxColor;
+		private System.Windows.Forms.Button btRibbonColor;
 	}
 }
 
