@@ -64,15 +64,16 @@ namespace _6.het
 
 		private void btCar_Click(object sender, EventArgs e)
 		{
-      Factory = new BallFactory
-      {
-        BallColor = button1.BackColor
-      };
+      Factory = new CarFactory();
     }
 
 		private void btBall_Click(object sender, EventArgs e)
 		{
-      Factory = new BallFactory();
+      Factory = new BallFactory
+      {
+        BallColor = button1.BackColor
+      };
+      
 		}
     private void DisplayNext()
     {
@@ -99,8 +100,8 @@ namespace _6.het
 		{
       Factory = new PresentFactory
       {
-        RibbonColor = btRibbonColor.BackColor
-        BoxColor = btBoxColor.BackColor
+        RibbonColor = btRibbonColor.BackColor,
+				BoxColor = btBoxColor.BackColor
       };
     }
 	}
