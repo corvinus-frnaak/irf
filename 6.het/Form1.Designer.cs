@@ -36,6 +36,7 @@
 			this.btBall = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
+			this.btPresent = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// mainPanel
@@ -89,7 +90,7 @@
 			// button1
 			// 
 			this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.button1.Location = new System.Drawing.Point(231, 12);
+			this.button1.Location = new System.Drawing.Point(319, 12);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(75, 23);
 			this.button1.TabIndex = 4;
@@ -97,11 +98,21 @@
 			this.button1.UseVisualStyleBackColor = false;
 			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
+			// btPresent
+			// 
+			this.btPresent.Location = new System.Drawing.Point(194, 12);
+			this.btPresent.Name = "btPresent";
+			this.btPresent.Size = new System.Drawing.Size(83, 23);
+			this.btPresent.TabIndex = 5;
+			this.btPresent.Text = "PRESENT";
+			this.btPresent.UseVisualStyleBackColor = true;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(803, 447);
+			this.Controls.Add(this.btPresent);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.btBall);
@@ -123,6 +134,7 @@
 		private System.Windows.Forms.Button btBall;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btPresent;
 	}
 }
 
