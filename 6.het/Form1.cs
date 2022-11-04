@@ -64,8 +64,11 @@ namespace _6.het
 
 		private void btCar_Click(object sender, EventArgs e)
 		{
-      Factory = new CarFactory();
-		}
+      Factory = new BallFactory
+      {
+        BallColor = button1.BackColor
+      };
+    }
 
 		private void btBall_Click(object sender, EventArgs e)
 		{
@@ -81,5 +84,15 @@ namespace _6.het
       Controls.Add(_nextToy);
     }
 
-  }
+		private void button1_Click(object sender, EventArgs e)
+		{
+      var button = (Button)sender;
+      var colorPicker = new ColorDialog();
+
+      colorPicker.Color = button.BackColor;
+      if (colorPicker.ShowDialog() != DialogResult.OK)
+        return;
+      button.BackColor = colorPicker.Color;
+    }
+	}
 }
