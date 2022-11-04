@@ -22,8 +22,8 @@ namespace _6.het.Entities
     protected override void DrawImage(Graphics g)
     {
       g.FillRectangle(BoxColor, 0, 0, Width, Height);
-      g.FillRectangle(RibbonColor, 0, 0, Width, Height/5);
-       g.FillRectangle(RibbonColor, 0, 0, Width / 5, Height);
+      g.FillRectangle(RibbonColor, 20, 0, 20, 50);
+      g.FillRectangle(RibbonColor, 0, 20, 50, 20);
     }
   }
 }

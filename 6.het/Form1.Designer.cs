@@ -118,6 +118,7 @@
 			this.btBoxColor.TabIndex = 6;
 			this.btBoxColor.Text = "BOX COLOR";
 			this.btBoxColor.UseVisualStyleBackColor = true;
+			this.btBoxColor.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// btRibbonColor
 			// 
@@ -127,6 +128,7 @@
 			this.btRibbonColor.TabIndex = 7;
 			this.btRibbonColor.Text = "RIBBON COLOR";
 			this.btRibbonColor.UseVisualStyleBackColor = true;
+			this.btRibbonColor.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// Form1
 			// 

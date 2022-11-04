@@ -18,9 +18,5 @@ namespace _6.het.Entities
       return new Present(RibbonColor,BoxColor);
     }
 
-		Toy IToyFactory.CreateNew()
-		{
-			throw new NotImplementedException();
-		}
 	}
 }
