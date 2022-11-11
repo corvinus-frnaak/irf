@@ -30,7 +30,9 @@ namespace heteshet
 		private void InitializeComponent()
 		{
 			this.dgwPortfolio = new System.Windows.Forms.DataGridView();
+			this.dgwTick = new System.Windows.Forms.DataGridView();
 			((System.ComponentModel.ISupportInitialize)(this.dgwPortfolio)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgwTick)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dgwPortfolio
@@ -38,18 +40,28 @@ namespace heteshet
 			this.dgwPortfolio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgwPortfolio.Location = new System.Drawing.Point(12, 12);
 			this.dgwPortfolio.Name = "dgwPortfolio";
-			this.dgwPortfolio.Size = new System.Drawing.Size(499, 235);
+			this.dgwPortfolio.Size = new System.Drawing.Size(369, 302);
 			this.dgwPortfolio.TabIndex = 0;
+			// 
+			// dgwTick
+			// 
+			this.dgwTick.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgwTick.Location = new System.Drawing.Point(387, 12);
+			this.dgwTick.Name = "dgwTick";
+			this.dgwTick.Size = new System.Drawing.Size(369, 302);
+			this.dgwTick.TabIndex = 1;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.dgwTick);
 			this.Controls.Add(this.dgwPortfolio);
 			this.Name = "Form1";
 			this.Text = "Form1";
 			((System.ComponentModel.ISupportInitialize)(this.dgwPortfolio)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgwTick)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -57,6 +69,7 @@ namespace heteshet
 		#endregion
 
 		private System.Windows.Forms.DataGridView dgwPortfolio;
+		private System.Windows.Forms.DataGridView dgwTick;
 	}
 }
 
