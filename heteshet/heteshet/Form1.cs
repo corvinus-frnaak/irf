@@ -77,6 +77,7 @@ namespace heteshet
 			if (save.ShowDialog() == DialogResult.OK)
 			{
 				StreamWriter writer = new StreamWriter(save.OpenFile());
+				writer.WriteLine("Időszak"+";"+"Nyereség");
 				for (int i = 0; i < Nyereségek.Count; i++)
 				{
 					writer.WriteLine(i+";"+Nyereségek[i]);
