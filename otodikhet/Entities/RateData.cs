@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace otodikhet.Entities
 {
-	internal class RateData
+	public class RateData
 	{
+		public DateTime Date { get; set; }
+		public String Currency { get; set; }
+		public Decimal Value { get; set; }
 		public RateData()
 		{
-			DateTime Date;
-			String Currency;
-			Decimal Value;
 		}
 	}
 }

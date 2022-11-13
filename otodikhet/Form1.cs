@@ -36,6 +36,13 @@ namespace otodikhet
 			xml.LoadXml(result);
 			foreach (XmlElement x in xml.DocumentElement)
 			{
+				var rate = new RateData();
+				Rates.Add(rate);
+				rate.Date = DateTime.Parse(x.GetAttribute("date"));
+				var childElement = (XmlElement)x.ChildNodes[0];
+				rate.Currency = childElement.GetAttribute("curr");
+				var hanyados = decimal.Parse(childElement.InnerText) / decimal.Parse(childElement.GetAttribute("unit"));
+				rate.Value = hanyados==0? 0:hanyados;	
 			}
 		}
 		public Form1()
