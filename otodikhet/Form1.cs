@@ -46,7 +46,6 @@ namespace otodikhet
 			chartarea.AxisX.MajorGrid.Enabled = false;
 			chartarea.AxisY.MajorGrid.Enabled = false;
 			chartarea.AxisY.IsStartedFromZero = false;	
-
 		}
 		public void XmlProcess(string result)
 		{
@@ -68,7 +67,7 @@ namespace otodikhet
 			Rates.Clear();
 			string result = WebServiceCall();
 			dgwRates.DataSource = Rates;
-			//comboBox1.DataSource = Currencies;
+			comboBox1.DataSource = Currencies;
 			XmlProcess(result);
 			ShowData();
 		}
@@ -82,18 +81,18 @@ namespace otodikhet
 		{
 			var requestC = new GetCurrenciesRequestBody();
 			var responseC = mnbService.GetCurrencies(requestC);
-			var resultC = responseC.GetCurrenciesResult;	
+			var resultC = responseC.GetCurrenciesResult;
 			CurrencyProcess(resultC);
 		}
 		public void CurrencyProcess(string result)
 		{
 			var Xml = new XmlDocument();
 			Xml.LoadXml(result);
-			foreach (XmlElement x in Xml.DocumentElement)
+			foreach (XmlElement x in Xml.DocumentElement.FirstChild)
 			{
-				//var currency = x.GetAttribute("curr");
-				//Currencies.Add(currency);
-
+				if (x == null)	continue;
+				var currency = x.InnerText;
+				 Currencies.Add(currency.ToString());
 			}
 		}
 		private void dgwRates_CellContentClick(object sender, DataGridViewCellEventArgs e)
