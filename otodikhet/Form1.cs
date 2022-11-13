@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 
 namespace otodikhet
@@ -18,17 +19,34 @@ namespace otodikhet
 	{
 		MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
 		BindingList<RateData> Rates = new BindingList<RateData>();
+		BindingList<string> Currencies = new BindingList<string>();
 		public string WebServiceCall()
 		{
 			var request = new GetExchangeRatesRequestBody()
 			{
-				currencyNames = "EUR",
-				startDate = "2020-01-01",
-				endDate = "2020-06-30"
+				currencyNames = comboBox1.SelectedItem.ToString(),	
+				startDate = dateTimePicker1.Value.ToString(),
+				endDate = dateTimePicker2.Value.ToString()
 			};
 			var response = mnbService.GetExchangeRates(request);
 			var result = response.GetExchangeRatesResult;
 			return result;
+		}
+		public void ShowData()
+		{
+			chartRateDAta.DataSource = Rates;
+			var series = chartRateDAta.Series[0];
+			series.ChartType = SeriesChartType.Line;
+			series.XValueMember = "Date";
+			series.YValueMembers = "Value";
+			series.BorderWidth = 3;
+			var legends = chartRateDAta.Legends[0];
+			legends.Enabled = false;
+			var chartarea = chartRateDAta.ChartAreas[0];
+			chartarea.AxisX.MajorGrid.Enabled = false;
+			chartarea.AxisY.MajorGrid.Enabled = false;
+			chartarea.AxisY.IsStartedFromZero = false;	
+
 		}
 		public void XmlProcess(string result)
 		{
@@ -45,12 +63,57 @@ namespace otodikhet
 				rate.Value = hanyados==0? 0:hanyados;	
 			}
 		}
+		public void RefreshData()
+		{
+			Rates.Clear();
+			string result = WebServiceCall();
+			dgwRates.DataSource = Rates;
+			//comboBox1.DataSource = Currencies;
+			XmlProcess(result);
+			ShowData();
+		}
 		public Form1()
 		{
 			InitializeComponent();
-			string result = WebServiceCall();
-			dgwRates.DataSource = Rates;
-			XmlProcess(result);
+			GetCurrencies();
+			RefreshData();
+		}
+		public void GetCurrencies()
+		{
+			var requestC = new GetCurrenciesRequestBody();
+			var responseC = mnbService.GetCurrencies(requestC);
+			var resultC = responseC.GetCurrenciesResult;	
+			CurrencyProcess(resultC);
+		}
+		public void CurrencyProcess(string result)
+		{
+			var Xml = new XmlDocument();
+			Xml.LoadXml(result);
+			foreach (XmlElement x in Xml.DocumentElement)
+			{
+				//var currency = x.GetAttribute("curr");
+				//Currencies.Add(currency);
+
+			}
+		}
+		private void dgwRates_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			
+		}
+
+		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+		{
+			RefreshData();
+		}
+
+		private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+		{
+			RefreshData();
+		}
+
+		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			RefreshData();
 		}
 	}
 }
