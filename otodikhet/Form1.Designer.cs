@@ -28,34 +28,36 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.label1 = new System.Windows.Forms.Label();
+			this.dgwRates = new System.Windows.Forms.DataGridView();
+			((System.ComponentModel.ISupportInitialize)(this.dgwRates)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// label1
+			// dgwRates
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(230, 82);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(44, 16);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "label1";
+			this.dgwRates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgwRates.Location = new System.Drawing.Point(12, 12);
+			this.dgwRates.Name = "dgwRates";
+			this.dgwRates.RowHeadersWidth = 51;
+			this.dgwRates.RowTemplate.Height = 24;
+			this.dgwRates.Size = new System.Drawing.Size(403, 286);
+			this.dgwRates.TabIndex = 0;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.label1);
+			this.Controls.Add(this.dgwRates);
 			this.Name = "Form1";
 			this.Text = "Form1";
+			((System.ComponentModel.ISupportInitialize)(this.dgwRates)).EndInit();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.DataGridView dgwRates;
 	}
 }
 

@@ -1,4 +1,5 @@
-﻿using otodikhet.MnbServiceReference;
+﻿using otodikhet.Entities;
+using otodikhet.MnbServiceReference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,13 +10,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace otodikhet
 {
 	public partial class Form1 : Form
 	{
 		MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
-		public void WebServiceCall()
+		BindingList<RateData> Rates = new BindingList<RateData>();
+		public string WebServiceCall()
 		{
 			var request = new GetExchangeRatesRequestBody()
 			{
@@ -25,11 +28,22 @@ namespace otodikhet
 			};
 			var response = mnbService.GetExchangeRates(request);
 			var result = response.GetExchangeRatesResult;
+			return result;
+		}
+		public void XmlProcess(string result)
+		{
+			XmlDocument xml = new XmlDocument();
+			xml.LoadXml(result);
+			foreach (XmlElement x in xml.DocumentElement)
+			{
+			}
 		}
 		public Form1()
 		{
 			InitializeComponent();
-			WebServiceCall();
+			string result = WebServiceCall();
+			dgwRates.DataSource = Rates;
+			XmlProcess(result);
 		}
 	}
 }
