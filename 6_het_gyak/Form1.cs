@@ -14,20 +14,33 @@ namespace _6_het_gyak
 {
 	public partial class Form1 : Form
 	{
-		List<Ball> _toys = new List<Ball>();
-		public IToyFactory Factory; 
+		Toy _nextToy;
+		List<Toy> _toys = new List<Toy>();
+		private IToyFactory _factory;
+		public IToyFactory Factory { get { return _factory; ; } set { _factory = value; DisplayNext(); } }
 		public Form1()
 		{
 			InitializeComponent();
 			Factory = new BallFactory();
 		}
+		public void DisplayNext()
+		{
+			if (_nextToy!=null)
+			{
+				Controls.Remove(_nextToy);
+				_nextToy = Factory.CreateNew();
+				_nextToy.Left = label1.Left;
+				_nextToy.Top = label1.Height;
+				Controls.Add(_nextToy);
+			}
+		}
 
 		private void createTimer_Tick(object sender, EventArgs e)
 		{
-			var newBall = Factory.CreateNew();
-			_toys.Add(newBall);
-			newBall.Left = -newBall.Width;
-			mainPanel.Controls.Add(newBall);
+			var newToy = Factory.CreateNew();
+			_toys.Add(newToy);
+			newToy.Left = -newToy.Width;
+			mainPanel.Controls.Add(newToy);
 			
 		}
 
@@ -54,11 +67,13 @@ namespace _6_het_gyak
 
 		private void btCar_Click(object sender, EventArgs e)
 		{
+			var newBall = new BallFactory();
 
 		}
 
 		private void btBall_Click(object sender, EventArgs e)
 		{
+			var newCar = new CarFactory();
 
 		}
 	}
