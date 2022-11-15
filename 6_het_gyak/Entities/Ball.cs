@@ -25,7 +25,6 @@ namespace _6_het_gyak.Entities
 		private void Ball_Paint(object sender, PaintEventArgs e)
 		{
 			DrawImage(e.Graphics);
-			throw new NotImplementedException();
 		}
 		public void MoveBall()
 		{

@@ -17,10 +17,8 @@ namespace _6_het_gyak
 		public BallFactory Factory; //BallFactory típusú kifejtett propery
 		public Form1()
 		{
-			mainPanel.Width = Width;
-		
-			Factory = new BallFactory();
 			InitializeComponent();
+			Factory = new BallFactory();
 		}
 
 		private void createTimer_Tick(object sender, EventArgs e)

@@ -36,6 +36,7 @@
 			// 
 			// mainPanel
 			// 
+			this.mainPanel.AutoSize = true;
 			this.mainPanel.Location = new System.Drawing.Point(12, 225);
 			this.mainPanel.Name = "mainPanel";
 			this.mainPanel.Size = new System.Drawing.Size(776, 139);
@@ -57,11 +58,13 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoSize = true;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.mainPanel);
 			this.Name = "Form1";
 			this.Text = "Form1";
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
