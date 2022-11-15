@@ -35,11 +35,11 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.btCar = new System.Windows.Forms.Button();
 			this.btBall = new System.Windows.Forms.Button();
+			this.btBallColor = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// mainPanel
 			// 
-			this.mainPanel.AutoSize = true;
 			this.mainPanel.Location = new System.Drawing.Point(12, 225);
 			this.mainPanel.Name = "mainPanel";
 			this.mainPanel.Size = new System.Drawing.Size(776, 139);
@@ -86,12 +86,23 @@
 			this.btBall.UseVisualStyleBackColor = true;
 			this.btBall.Click += new System.EventHandler(this.btBall_Click);
 			// 
+			// btBallColor
+			// 
+			this.btBallColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+			this.btBallColor.Location = new System.Drawing.Point(241, 39);
+			this.btBallColor.Name = "btBallColor";
+			this.btBallColor.Size = new System.Drawing.Size(77, 31);
+			this.btBallColor.TabIndex = 4;
+			this.btBallColor.UseVisualStyleBackColor = false;
+			this.btBallColor.Click += new System.EventHandler(this.btBallColor_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.btBallColor);
 			this.Controls.Add(this.btBall);
 			this.Controls.Add(this.btCar);
 			this.Controls.Add(this.label1);
@@ -111,6 +122,7 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button btCar;
 		private System.Windows.Forms.Button btBall;
+		private System.Windows.Forms.Button btBallColor;
 	}
 }
 

@@ -17,7 +17,18 @@ namespace _6_het_gyak
 		Toy _nextToy;
 		List<Toy> _toys = new List<Toy>();
 		private IToyFactory _factory;
-		public IToyFactory Factory { get { return _factory; ; } set { _factory = value; DisplayNext(); } }
+		public IToyFactory Factory
+		{
+			get
+			{
+				return _factory;
+			}
+			set
+			{
+				_factory = value;
+				DisplayNext();
+			}
+		}
 		public Form1()
 		{
 			InitializeComponent();
@@ -25,14 +36,13 @@ namespace _6_het_gyak
 		}
 		public void DisplayNext()
 		{
-			if (_nextToy!=null)
-			{
+			if (_nextToy != null)
 				Controls.Remove(_nextToy);
 				_nextToy = Factory.CreateNew();
 				_nextToy.Left = label1.Left;
-				_nextToy.Top = label1.Height;
+				_nextToy.Top = label1.Height+7*label1.Height;
 				Controls.Add(_nextToy);
-			}
+
 		}
 
 		private void createTimer_Tick(object sender, EventArgs e)
@@ -47,7 +57,7 @@ namespace _6_het_gyak
 		private void conveyorTimer_Tick(object sender, EventArgs e)
 		{
 			var maxPosition = 0;
-			foreach (Ball b in _toys)
+			foreach (Toy b in _toys)
 			{
 				b.MoveToy();
 				if (b.Left>maxPosition)
@@ -67,13 +77,20 @@ namespace _6_het_gyak
 
 		private void btCar_Click(object sender, EventArgs e)
 		{
-			var newBall = new BallFactory();
-
+			
+			Factory = new CarFactory();
 		}
 
 		private void btBall_Click(object sender, EventArgs e)
 		{
-			var newCar = new CarFactory();
+			Factory = new BallFactory();
+
+		}
+
+		private void btBallColor_Click(object sender, EventArgs e)
+		{
+			var bt = (Button)sender;
+			var colorD = new ColorDialog();
 
 		}
 	}
