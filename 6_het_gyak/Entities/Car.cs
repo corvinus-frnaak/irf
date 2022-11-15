@@ -1,18 +1,19 @@
 ﻿using _6_het_gyak.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace _6_het_gyak.Entities
 {
-	public class BallFactory: IToyFactory
+	public class Car : Toy
 	{
-		public Toy CreateNew()
+		protected override void DrawImage(Graphics e)
 		{
-			return new Ball();
+			Image img = Image.FromFile("car.png");
+			e.DrawImage(img,new Rectangle(0,0,Width,Height) );
 		}
 	}
-
 }
