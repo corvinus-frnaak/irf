@@ -16,12 +16,17 @@ namespace zhgyak.Abstractions
 		}
 		public virtual string Title
 		{
+			get
+			{
+				return Title;
+			}
 			set
 			{
 				Text = value;
 			}
 		}
-		public virtual int Calories { set { Display(); } }
+		//{ Display(); }
+		public virtual int Calories { get; set; }
 		public abstract void Display();
 
 	}
