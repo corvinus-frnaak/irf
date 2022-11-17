@@ -18,18 +18,15 @@ namespace zhgyak.Entities
 
 		private void Food_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show(Title+"/t"+Description());
+			MessageBox.Show(Title + "\n" + Description + "\n" + Calories);
 		}
 
 		public override void Display()
 		{
-			if (Calories<750) BackColor = Color.LightGreen;
-			if (Calories > 750&&Calories<1001) BackColor = Color.LightYellow;
-			if (Calories > 1000) BackColor = Color.Salmon;
+			if (Calories < 750) { BackColor = Color.LightGreen; return; }
+			if (Calories >= 750 && Calories <= 1001) { BackColor = Color.LightYellow; return; }
+			if (Calories >= 1000) { BackColor = Color.Salmon; return; }
 		}
-		public string Description()
-		{
-			return "bla";
-		}
+		public string Description { get; set; }
 	}
 }

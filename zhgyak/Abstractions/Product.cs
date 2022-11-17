@@ -14,19 +14,22 @@ namespace zhgyak.Abstractions
 			Width = 150;
 			Height = 50;
 		}
+
+		private string _title;
+		private int _calories;
 		public virtual string Title
 		{
 			get
 			{
-				return Title;
+				return _title;
 			}
 			set
 			{
 				Text = value;
+				_title = value;
 			}
 		}
-		//{ Display(); }
-		public virtual int Calories { get; set; }
+		public virtual int Calories { get => _calories; set { _calories = value; Display();  } }
 		public abstract void Display();
 
 	}
