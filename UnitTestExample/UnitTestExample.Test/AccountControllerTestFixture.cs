@@ -29,7 +29,7 @@ namespace UnitTestExample
 		 TestCase("HALLOH1ALLO", false),
 		 TestCase("jelszojelszo", false),
 		TestCase("irf", false),
-		 TestCase("irfIrf12", true)
+		 TestCase("passworD12", true)
 		]
 		public void TestValidatePassword(string password, bool expectedResult)
 		{
