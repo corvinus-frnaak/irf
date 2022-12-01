@@ -10,6 +10,6 @@ namespace kilencedikgyak.Entities
 	{
 		public int BirthYear { get; set; }
 		public int NbrOfChildren { get; set; }
-		public bool Probability { get; set; }
+		public double Probability { get; set; }
 	}
 }
