@@ -8,8 +8,9 @@ namespace kilencedikgyak.Entities
 {
 	public class DeathProbability
 	{
-		public int BirthYear { get; set; }
-		public int NbrOfChildren { get; set; }
+
+		public Gender Gender { get; set; }
+		public int Age { get; set; }
 		public double Probability { get; set; }
 	}
 }
