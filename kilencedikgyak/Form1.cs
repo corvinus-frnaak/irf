@@ -23,10 +23,7 @@ namespace kilencedikgyak
 		public Form1()
 		{
 			InitializeComponent();
-      Population = GetPopulation(textBox1.Text+@"\nép.csv");
-      BirthProbabilities = GetBirthProbabilities(textBox1.Text + @"\születés.csv");
-      DeathProbabilities = GetDeathProbabilities(textBox1.Text + @"\halál.csv");
-      
+           
     }
     public List<Person> GetPopulation(string csvpath)
     {
@@ -98,8 +95,8 @@ namespace kilencedikgyak
 				}
         int nbrOfMales = (from x in Population where x.Gender == Gender.Male select x).Count();
         int nbrOfFemales = (from x in Population where x.Gender == Gender.Male select x).Count();
-        maleNumber[year-2005] = nbrOfMales;
-        femaleNumber[year - 2005] = nbrOfFemales;
+        maleNumber.Add(nbrOfMales);
+        femaleNumber.Add(nbrOfFemales);
         
       }
     }
@@ -130,7 +127,8 @@ namespace kilencedikgyak
 		private void btBrowse_Click(object sender, EventArgs e)
 		{
       FolderBrowserDialog open = new FolderBrowserDialog();
-			if (open.ShowDialog() == DialogResult.OK)
+      open.RootFolder = Environment.SpecialFolder.MyComputer;
+      if (open.ShowDialog() == DialogResult.OK)
 			{
         textBox1.Text = open.SelectedPath;
 			}
@@ -138,6 +136,9 @@ namespace kilencedikgyak
 
 		private void btStart_Click(object sender, EventArgs e)
 		{
+      Population = GetPopulation(textBox1.Text + @"\nép.csv");
+      BirthProbabilities = GetBirthProbabilities(textBox1.Text + @"\születés.csv");
+      DeathProbabilities = GetDeathProbabilities(textBox1.Text + @"\halál.csv");
       richTextBox1.Text = "";
       maleNumber.Clear();
       femaleNumber.Clear();
